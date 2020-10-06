@@ -11,7 +11,11 @@ Please make sure to update tests as appropriate.
 
 # Author
 
-Abdulmalik Muhammad @aoomle YouTube, @aoomle_ Twitter
+Abdulmalik Muhammad 
+
+YouTube: https//www.youtube.com/aoomle 
+
+Twitter: https://www.twitter.com/aoomle_
 
 License
 

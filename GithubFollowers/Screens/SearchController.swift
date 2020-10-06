@@ -44,7 +44,6 @@ class SearchController: UIViewController, UITextFieldDelegate {
     return liv
   }()
   
-  //computed propety
   var isUsernameEmpty: Bool { !usernameLabel.text!.isEmpty }
   
   override func viewDidLoad() {
@@ -69,6 +68,7 @@ class SearchController: UIViewController, UITextFieldDelegate {
       usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
       usernameLabel.heightAnchor.constraint(equalToConstant: 50),
       
+      
       sendbutton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
       sendbutton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
       sendbutton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
@@ -82,6 +82,7 @@ class SearchController: UIViewController, UITextFieldDelegate {
   }
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
+    
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {

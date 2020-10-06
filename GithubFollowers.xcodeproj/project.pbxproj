@@ -16,6 +16,8 @@
 		47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFDF252B89D9002FB35B /* FollowerListController.swift */; };
 		47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE2252B8A04002FB35B /* FavoriteController.swift */; };
 		47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE5252B8A43002FB35B /* SearchController.swift */; };
+		47E6E913252BF3FE00F10B78 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E6E912252BF3FE00F10B78 /* Follower.swift */; };
+		47E6E916252C04D300F10B78 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E6E915252C04D300F10B78 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		47DCEFDF252B89D9002FB35B /* FollowerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListController.swift; sourceTree = "<group>"; };
 		47DCEFE2252B8A04002FB35B /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		47DCEFE5252B8A43002FB35B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		47E6E912252BF3FE00F10B78 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		47E6E915252C04D300F10B78 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +66,10 @@
 		4763A0EC2528FA3700D6E42D /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				4763A0ED2528FA3700D6E42D /* AppDelegate.swift */,
-				4763A0EF2528FA3700D6E42D /* SceneDelegate.swift */,
+				47E6E90E252BF3D300F10B78 /* Support */,
 				47DCEFE8252B8BCA002FB35B /* Screens */,
-				4763A0F62528FA3800D6E42D /* Assets.xcassets */,
-				4763A0F82528FA3800D6E42D /* LaunchScreen.storyboard */,
 				4763A0FB2528FA3800D6E42D /* Info.plist */,
+				47E6E911252BF3ED00F10B78 /* Model */,
 			);
 			path = GithubFollowers;
 			sourceTree = "<group>";
@@ -90,6 +92,26 @@
 				4763A0F12528FA3700D6E42D /* MainTabController.swift */,
 			);
 			path = "TabBar Menus";
+			sourceTree = "<group>";
+		};
+		47E6E90E252BF3D300F10B78 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4763A0ED2528FA3700D6E42D /* AppDelegate.swift */,
+				4763A0EF2528FA3700D6E42D /* SceneDelegate.swift */,
+				4763A0F62528FA3800D6E42D /* Assets.xcassets */,
+				4763A0F82528FA3800D6E42D /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		47E6E911252BF3ED00F10B78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47E6E912252BF3FE00F10B78 /* Follower.swift */,
+				47E6E915252C04D300F10B78 /* Service.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +186,9 @@
 				4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */,
 				47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */,
 				47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */,
+				47E6E913252BF3FE00F10B78 /* Follower.swift in Sources */,
 				4763A0F22528FA3700D6E42D /* MainTabController.swift in Sources */,
+				47E6E916252C04D300F10B78 /* Service.swift in Sources */,
 				47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */,
 				4763A0EE2528FA3700D6E42D /* AppDelegate.swift in Sources */,
 				4763A0F02528FA3700D6E42D /* SceneDelegate.swift in Sources */,

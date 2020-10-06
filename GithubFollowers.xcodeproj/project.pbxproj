@@ -12,6 +12,10 @@
 		4763A0F22528FA3700D6E42D /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A0F12528FA3700D6E42D /* MainTabController.swift */; };
 		4763A0F72528FA3800D6E42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4763A0F62528FA3800D6E42D /* Assets.xcassets */; };
 		4763A0FA2528FA3800D6E42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4763A0F82528FA3800D6E42D /* LaunchScreen.storyboard */; };
+		4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770332D252B98E5004B7ED2 /* CustomAlertController.swift */; };
+		47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFDF252B89D9002FB35B /* FollowerListController.swift */; };
+		47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE2252B8A04002FB35B /* FavoriteController.swift */; };
+		47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE5252B8A43002FB35B /* SearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		4763A0F62528FA3800D6E42D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4763A0F92528FA3800D6E42D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4763A0FB2528FA3800D6E42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4770332D252B98E5004B7ED2 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
+		47DCEFDF252B89D9002FB35B /* FollowerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListController.swift; sourceTree = "<group>"; };
+		47DCEFE2252B8A04002FB35B /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
+		47DCEFE5252B8A43002FB35B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +64,32 @@
 			children = (
 				4763A0ED2528FA3700D6E42D /* AppDelegate.swift */,
 				4763A0EF2528FA3700D6E42D /* SceneDelegate.swift */,
-				4763A0F12528FA3700D6E42D /* MainTabController.swift */,
+				47DCEFE8252B8BCA002FB35B /* Screens */,
 				4763A0F62528FA3800D6E42D /* Assets.xcassets */,
 				4763A0F82528FA3800D6E42D /* LaunchScreen.storyboard */,
 				4763A0FB2528FA3800D6E42D /* Info.plist */,
 			);
 			path = GithubFollowers;
+			sourceTree = "<group>";
+		};
+		47DCEFE8252B8BCA002FB35B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				47DCEFEA252B8BD7002FB35B /* TabBar Menus */,
+				47DCEFE5252B8A43002FB35B /* SearchController.swift */,
+				4770332D252B98E5004B7ED2 /* CustomAlertController.swift */,
+				47DCEFDF252B89D9002FB35B /* FollowerListController.swift */,
+				47DCEFE2252B8A04002FB35B /* FavoriteController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		47DCEFEA252B8BD7002FB35B /* TabBar Menus */ = {
+			isa = PBXGroup;
+			children = (
+				4763A0F12528FA3700D6E42D /* MainTabController.swift */,
+			);
+			path = "TabBar Menus";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */,
+				47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */,
+				47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */,
 				4763A0F22528FA3700D6E42D /* MainTabController.swift in Sources */,
+				47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */,
 				4763A0EE2528FA3700D6E42D /* AppDelegate.swift in Sources */,
 				4763A0F02528FA3700D6E42D /* SceneDelegate.swift in Sources */,
 			);

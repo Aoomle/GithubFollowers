@@ -1,40 +1,12 @@
 //
-//  ViewController.swift
+//  SearchController.swift
 //  GithubFollowers
 //
-//  Created by Abdulmalik Muhammad on 03/10/2020.
+//  Created by Abdulmalik Muhammad on 05/10/2020.
 //
 
 import UIKit
 
-class MainTabController: UITabBarController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
- 
-    tabBar.tintColor = .label
-    setupUI()
-    view.backgroundColor = .systemBackground
-    navigationController?.setNavigationBarHidden(false, animated: false)
-  }
-  
-  fileprivate func setupUI() {
-    viewControllers = [
-      generateController(viewController: SearchController(), tabIcon: .search),
-      generateController(viewController: FavoriteController(), tabIcon: .favorites)
-    ]
-  }
-
-  fileprivate func generateController(viewController: UIViewController, tabIcon: UITabBarItem.SystemItem) -> UINavigationController {
-    let view = UINavigationController(rootViewController: viewController)
-    view.tabBarItem = UITabBarItem(tabBarSystemItem: tabIcon, tag: 0)
-    view.navigationBar.tintColor = .label
-    return view
-  }
-
-}
-
-//MARK:- Search Controller
 class SearchController: UIViewController, UITextFieldDelegate {
   
   let usernameLabel: UITextField = {
@@ -90,7 +62,7 @@ class SearchController: UIViewController, UITextFieldDelegate {
       logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
       logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       logoImageView.widthAnchor.constraint(equalToConstant: 220),
-      logoImageView.heightAnchor.constraint(equalToConstant: 200),
+      logoImageView.heightAnchor.constraint(equalToConstant: 220),
       
       usernameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       usernameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -113,15 +85,22 @@ class SearchController: UIViewController, UITextFieldDelegate {
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    
+    guard isUsernameEmpty else {
+      view.endEditing(true)
+      popAlertView()
+      return false
+    }
     pushViewController()
-    view.endEditing(true)
+  
     return true
   }
   
   @objc fileprivate func handleFollowers() {
-    print(#function)
-    pushViewController()
+    guard isUsernameEmpty else {
+        popAlertView()
+      return
+    }
+      pushViewController()
   }
   
   fileprivate func pushViewController() {
@@ -129,37 +108,12 @@ class SearchController: UIViewController, UITextFieldDelegate {
     followerList.username = usernameLabel.text
     navigationController?.pushViewController(followerList, animated: false)
   }
-}
-
-//MARK:- Favorite Controller
-class FavoriteController: UIViewController {
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = .systemIndigo
-    navigationController?.setNavigationBarHidden(true, animated: true)
-  }
-}
-
-//MARK:- Follower List Controller
-class FollowerListController: UIViewController {
   
-  var username: String?
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
-    
-    title = username ?? "Follower list"
-    ///fix navigation back button animated while going back to the main tab controller
-    navigationController?.setNavigationBarHidden(false, animated: false)
-    navigationController?.navigationBar.prefersLargeTitles = true
-    print(username ?? "no username passed")
-    print(123456)
-  }
-  
-  
-  @objc fileprivate func handleAdd() {
-    print(#function)
+  fileprivate func popAlertView() {
+    let alertView = CustomAlertController(title: "Username required", message: "Username can't be empty, Please enter your username.")
+    alertView.modalPresentationStyle = .overFullScreen
+    alertView.modalTransitionStyle = .crossDissolve
+    alertView.title = "Water porblem"
+    present(alertView, animated: true, completion: nil)
   }
 }

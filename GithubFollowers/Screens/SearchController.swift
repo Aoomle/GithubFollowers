@@ -105,7 +105,8 @@ class SearchController: UIViewController, UITextFieldDelegate {
   }
   
   fileprivate func pushViewController() {
-    let followerList = FollowerListController()
+    let layout = UICollectionViewFlowLayout()
+    let followerList = FollowerListController(collectionViewLayout: layout)
     followerList.username = usernameLabel.text
     navigationController?.pushViewController(followerList, animated: false)
   }

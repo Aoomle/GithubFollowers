@@ -11,7 +11,7 @@ class CustomAlertController: UIViewController {
   
   fileprivate let setTitle: UILabel = {
     var title = UILabel()
-    title.font = .boldSystemFont(ofSize: 18)
+    title.font = .preferredFont(forTextStyle: .headline)
     title.text = "Title"
     title.translatesAutoresizingMaskIntoConstraints = false
     title.textColor = .label
@@ -24,7 +24,8 @@ class CustomAlertController: UIViewController {
     var tv = UITextView()
     tv.text = "There is a problem with your internet connection, please try again later. If the problem presist, contact us +2348146191761"
     tv.translatesAutoresizingMaskIntoConstraints = false
-    tv.font = .monospacedDigitSystemFont(ofSize: 14, weight: .regular)
+    tv.font = .preferredFont(forTextStyle: .subheadline)
+//    tv.l
     tv.backgroundColor = .clear
     tv.textAlignment = .center
     tv.textColor = .label
@@ -78,8 +79,8 @@ class CustomAlertController: UIViewController {
     NSLayoutConstraint.activate([
       alertView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       alertView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-      alertView.widthAnchor.constraint(equalToConstant: 240),
-      alertView.heightAnchor.constraint(equalToConstant: 180)
+      alertView.widthAnchor.constraint(equalToConstant: 280),
+      alertView.heightAnchor.constraint(equalToConstant: 220)
     ])
   }
   
@@ -96,19 +97,19 @@ class CustomAlertController: UIViewController {
     NSLayoutConstraint.activate([
       setTitle.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 20),
       setTitle.leadingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-      setTitle.bottomAnchor.constraint(equalTo: setMessage.safeAreaLayoutGuide.topAnchor, constant: 0),
       setTitle.trailingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-      
-      setMessage.topAnchor.constraint(equalTo: setTitle.safeAreaLayoutGuide.bottomAnchor, constant: 15),
-      setMessage.leadingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.leadingAnchor),
-      setMessage.trailingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.trailingAnchor),
-      setMessage.bottomAnchor.constraint(equalTo: setButton.safeAreaLayoutGuide.topAnchor),
-      
-      setButton.bottomAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+      setTitle.heightAnchor.constraint(equalToConstant: 28),
+    
+      setButton.bottomAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.bottomAnchor, constant: -20),
       setButton.heightAnchor.constraint(equalToConstant: 44),
       setButton.leadingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
       setButton.trailingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
       
+      setMessage.topAnchor.constraint(equalTo: setTitle.safeAreaLayoutGuide.bottomAnchor, constant: 12),
+      setMessage.leadingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+      setMessage.trailingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+      setMessage.bottomAnchor.constraint(equalTo: setButton.safeAreaLayoutGuide.topAnchor, constant: -12),
+//      setMessage.heightAnchor.constraint(equalToConstant: 20)
     ])
     
   }

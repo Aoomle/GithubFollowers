@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		472104AD2535600C00966347 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472104AC2535600C00966347 /* UIHelper.swift */; };
 		473BD222252EBE280056766C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BD221252EBE280056766C /* User.swift */; };
 		4763A0EE2528FA3700D6E42D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A0ED2528FA3700D6E42D /* AppDelegate.swift */; };
 		4763A0F02528FA3700D6E42D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A0EF2528FA3700D6E42D /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		472104AC2535600C00966347 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		473BD221252EBE280056766C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4763A0EA2528FA3700D6E42D /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4763A0ED2528FA3700D6E42D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				47E6E90E252BF3D300F10B78 /* Support */,
 				47DCEFE8252B8BCA002FB35B /* Screens */,
 				4763A0FB2528FA3800D6E42D /* Info.plist */,
+				472104AC2535600C00966347 /* UIHelper.swift */,
 			);
 			path = GithubFollowers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				4763A0F02528FA3700D6E42D /* SceneDelegate.swift in Sources */,
 				473BD222252EBE280056766C /* User.swift in Sources */,
 				47915379252F9597001D5EBA /* FollowerCell.swift in Sources */,
+				472104AD2535600C00966347 /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

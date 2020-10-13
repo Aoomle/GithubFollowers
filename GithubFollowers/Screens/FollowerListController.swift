@@ -78,19 +78,7 @@ extension FollowerListController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
-    let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-
-    let numberofItem: CGFloat = 3
-
-    let collectionViewWidth = self.collectionView.bounds.width
-
-    let extraSpace = (numberofItem - 1) * flowLayout.minimumInteritemSpacing
-
-    let inset = flowLayout.sectionInset.right + flowLayout.sectionInset.left
-
-    let width = Int((collectionViewWidth - extraSpace - inset) / numberofItem)
-    
-    return CGSize(width: width, height: width)
+    return CGSize(width: threePhotoGrid(in: collectionView, collectionViewLayout: collectionViewLayout as! UICollectionViewFlowLayout), height: threePhotoGrid(in: collectionView, collectionViewLayout: collectionViewLayout as! UICollectionViewFlowLayout))
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

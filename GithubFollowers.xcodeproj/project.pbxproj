@@ -76,14 +76,22 @@
 		4763A0EC2528FA3700D6E42D /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				47A7669525369E3B00DD704A /* Utilities */,
 				47B59709252E50DC00981FEA /* Manager */,
 				47E6E911252BF3ED00F10B78 /* Model */,
 				47E6E90E252BF3D300F10B78 /* Support */,
 				47DCEFE8252B8BCA002FB35B /* Screens */,
 				4763A0FB2528FA3800D6E42D /* Info.plist */,
-				472104AC2535600C00966347 /* UIHelper.swift */,
 			);
 			path = GithubFollowers;
+			sourceTree = "<group>";
+		};
+		47A7669525369E3B00DD704A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				472104AC2535600C00966347 /* UIHelper.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		47B59709252E50DC00981FEA /* Manager */ = {

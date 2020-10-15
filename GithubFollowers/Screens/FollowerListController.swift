@@ -15,6 +15,10 @@ class FollowerListController: UICollectionViewController {
   
   var follower = [Follower]()
   
+  var page = 1
+  
+  var hasMoreFollowers = true
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,8 +36,15 @@ class FollowerListController: UICollectionViewController {
   fileprivate func setupCollectionView() {
     collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: "collectionCell")
     collectionView.backgroundColor = .systemBackground
+    collectionView.delegate = self
     
-    NetworkManager.shared.getFollowers(username: username ?? "aoomle") { (newfollowers, error) in
+    getFollowers(username: username ?? "aoomle", page: page)
+    
+  }
+  
+  
+  fileprivate func getFollowers(username: String, page: Int) {
+    NetworkManager.shared.getFollowers(username: username , page: page) { (newfollowers, error) in
       
       guard let newfollowers = newfollowers else {
         DispatchQueue.main.async {
@@ -44,13 +55,13 @@ class FollowerListController: UICollectionViewController {
         }
         return
       }
-
+      
+      if newfollowers.count < 100 { self.hasMoreFollowers = false }
       DispatchQueue.main.async {
         self.follower.append(contentsOf: newfollowers)
         self.collectionView.reloadData()
       }
     }
-    
   }
   
   @objc fileprivate func handleAdd() {
@@ -60,6 +71,7 @@ class FollowerListController: UICollectionViewController {
 }
 
 
+// MARK:- Extensions
 extension FollowerListController {
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return follower.count
@@ -82,7 +94,23 @@ extension FollowerListController: UICollectionViewDelegateFlowLayout {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 30
+    return 35
   }
   
+}
+
+
+// MARK:- Scroll view
+extension FollowerListController {
+  override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    let offsetY = scrollView.contentOffset.y
+    let contentHeight = scrollView.contentSize.height
+    let height = scrollView.frame.height
+
+    if offsetY > contentHeight - height {
+      guard hasMoreFollowers else { return }
+      page += 1
+      getFollowers(username: username ?? "aoomle", page: page)
+    }
+  }
 }

@@ -32,6 +32,7 @@ class FollowerCell: UICollectionViewCell {
     didSet {
       avatarTitle.text = follower?.login
       avatarImage.downloadImage(from: follower?.avatarUrl ?? "")
+      avatarImage.contentMode = .scaleAspectFit
     }
   }
   
@@ -43,13 +44,13 @@ class FollowerCell: UICollectionViewCell {
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.distribution = .fill
     stackView.axis = .vertical
-    stackView.spacing = 5
+    stackView.spacing = 0
        
     NSLayoutConstraint.activate([
-      stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+      stackView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
       stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
       stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-      stackView.heightAnchor.constraint(equalToConstant: 150),
+      stackView.heightAnchor.constraint(equalToConstant: 140),
  
     ])
   }

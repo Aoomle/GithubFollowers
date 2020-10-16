@@ -9,7 +9,9 @@ import UIKit
 
 class FollowerListController: UICollectionViewController {
   
-//  let cache = NSCache<String, UIImage>()
+  enum Section {
+    case main
+  }
   
   var username: String?
   
@@ -18,6 +20,8 @@ class FollowerListController: UICollectionViewController {
   var page = 1
   
   var hasMoreFollowers = true
+  
+  var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,7 +43,8 @@ class FollowerListController: UICollectionViewController {
     collectionView.delegate = self
     
     getFollowers(username: username ?? "aoomle", page: page)
-    
+    configureDataSource()
+
   }
   
   
@@ -56,10 +61,10 @@ class FollowerListController: UICollectionViewController {
         return
       }
       
-      if newfollowers.count < 100 { self.hasMoreFollowers = false }
+      if newfollowers.count < 50 { self.hasMoreFollowers = false }
       DispatchQueue.main.async {
         self.follower.append(contentsOf: newfollowers)
-        self.collectionView.reloadData()
+        self.updateData()
       }
     }
   }
@@ -68,23 +73,23 @@ class FollowerListController: UICollectionViewController {
     print(#function)
   }
   
+  func configureDataSource() {
+    dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FollowerCell
+      cell.follower = follower
+      return cell
+    })
+  }
+  
+  func updateData() {
+    var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+    snapshot.appendSections([.main])
+    snapshot.appendItems(follower)
+    DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
+  }
 }
 
 
-// MARK:- Extensions
-extension FollowerListController {
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return follower.count
-  }
-  
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FollowerCell
-    cell.follower = follower[indexPath.row]
-    return cell
-  }
-  
-
-}
 
 extension FollowerListController: UICollectionViewDelegateFlowLayout {
   
@@ -111,6 +116,7 @@ extension FollowerListController {
       guard hasMoreFollowers else { return }
       page += 1
       getFollowers(username: username ?? "aoomle", page: page)
+      updateData()
     }
   }
 }

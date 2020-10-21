@@ -7,7 +7,7 @@
 
 import UIKit
 
-func threePhotoGrid(in view: UIView,  collectionViewLayout: UICollectionViewFlowLayout) -> Int {
+func createLayoutGrid(in view: UIView,  collectionViewLayout: UICollectionViewFlowLayout) -> Int {
   let flowLayout = collectionViewLayout
 
   let numberofItem: CGFloat = 3

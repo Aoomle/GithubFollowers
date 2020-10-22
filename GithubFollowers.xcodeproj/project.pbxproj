@@ -18,6 +18,8 @@
 		4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770332D252B98E5004B7ED2 /* CustomAlertController.swift */; };
 		4780C3B6252E7C9C0052072C /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4780C3B5252E7C9C0052072C /* ErrorMessage.swift */; };
 		47915379252F9597001D5EBA /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47915378252F9597001D5EBA /* FollowerCell.swift */; };
+		47BDDBDF2541319100DDB08D /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */; };
+		47BDDBE4254139C600DDB08D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BDDBE3254139C600DDB08D /* EmptyStateView.swift */; };
 		47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFDF252B89D9002FB35B /* FollowerListController.swift */; };
 		47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE2252B8A04002FB35B /* FavoriteController.swift */; };
 		47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE5252B8A43002FB35B /* SearchController.swift */; };
@@ -39,6 +41,8 @@
 		4770332D252B98E5004B7ED2 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		4780C3B5252E7C9C0052072C /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		47915378252F9597001D5EBA /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
+		47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		47BDDBE3254139C600DDB08D /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		47DCEFDF252B89D9002FB35B /* FollowerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListController.swift; sourceTree = "<group>"; };
 		47DCEFE2252B8A04002FB35B /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		47DCEFE5252B8A43002FB35B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		4763A0EC2528FA3700D6E42D /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				47BDDBE2254139B800DDB08D /* Views */,
+				47BDDBDD2541318100DDB08D /* Extensions */,
 				47A7669525369E3B00DD704A /* Utilities */,
 				47B59709252E50DC00981FEA /* Manager */,
 				47E6E911252BF3ED00F10B78 /* Model */,
@@ -109,6 +115,22 @@
 				4770332D252B98E5004B7ED2 /* CustomAlertController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		47BDDBDD2541318100DDB08D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		47BDDBE2254139B800DDB08D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47BDDBE3254139C600DDB08D /* EmptyStateView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		47DCEFE8252B8BCA002FB35B /* Screens */ = {
@@ -224,6 +246,7 @@
 			files = (
 				4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */,
 				47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */,
+				47BDDBDF2541319100DDB08D /* UIViewController+Ext.swift in Sources */,
 				4780C3B6252E7C9C0052072C /* ErrorMessage.swift in Sources */,
 				4768D8D62533938C00B53175 /* DownloadImage.swift in Sources */,
 				47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */,
@@ -231,6 +254,7 @@
 				4763A0F22528FA3700D6E42D /* MainTabController.swift in Sources */,
 				47E6E916252C04D300F10B78 /* NetworkManager.swift in Sources */,
 				47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */,
+				47BDDBE4254139C600DDB08D /* EmptyStateView.swift in Sources */,
 				4763A0EE2528FA3700D6E42D /* AppDelegate.swift in Sources */,
 				4763A0F02528FA3700D6E42D /* SceneDelegate.swift in Sources */,
 				473BD222252EBE280056766C /* User.swift in Sources */,

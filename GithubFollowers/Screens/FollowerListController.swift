@@ -44,7 +44,12 @@ class FollowerListController: UICollectionViewController {
   
   
   fileprivate func getFollowers(username: String, page: Int) {
-    NetworkManager.shared.getFollowers(username: username , page: page) { (newfollowers, error) in
+    showLoading()
+    NetworkManager.shared.getFollowers(username: username , page: page) {[weak self] (newfollowers, error) in
+      
+      guard let self = self else { return }
+      
+      DispatchQueue.main.async { self.stopLoading()  }
       
       guard let newfollowers = newfollowers else {
         DispatchQueue.main.async {
@@ -59,9 +64,15 @@ class FollowerListController: UICollectionViewController {
       if newfollowers.count < 100 { self.hasMoreFollowers = false }
       DispatchQueue.main.async {
         self.follower.append(contentsOf: newfollowers)
+        
+        if newfollowers.isEmpty {
+          self.showEmptyState(with: "This user doesn't have any followers. Go follow them", in: self.view)
+        }
         self.collectionView.reloadData()
       }
+     
     }
+   
   }
   
   @objc fileprivate func handleAdd() {

@@ -9,74 +9,86 @@ import UIKit
 
 class FollowerListController: UICollectionViewController {
   
+  enum Section {
+    case main
+  }
+  
   var username: String?
   
-  var follower = [Follower]()
+  var followers = [Follower]()
+  var filterFollowers = [Follower]()
   
   var page = 1
   
   var hasMoreFollowers = true
   
+  var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
-    
+    setupViewController()
+    setupCollectionView()
+    setupSearchController()
+    getFollowers(username: username ?? "aoomle", page: page)
+    configureDataSource()
+  }
+  
+  fileprivate func setupViewController() {
     title = username ?? "aoomle"
-    
     ///fix navigation back button animated while going back to the main tab controller
     navigationController?.setNavigationBarHidden(false, animated: false)
     navigationController?.navigationBar.prefersLargeTitles = true
-    setupCollectionView()
-
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
   }
-  
+ 
   fileprivate func setupCollectionView() {
-    collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: "collectionCell")
+    collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.resuseID)
     collectionView.backgroundColor = .systemBackground
     collectionView.delegate = self
-    
-    let searchController = UISearchController(searchResultsController: nil)
-    navigationItem.searchController = searchController
-    searchController.delegate = self
-    searchController.searchResultsUpdater = self
-    searchController.searchBar.placeholder = "Enter a username here"
-    
-    getFollowers(username: username ?? "aoomle", page: page)
-    
   }
   
+  fileprivate func setupSearchController() {
+    let searchController = UISearchController(searchResultsController: nil)
+    navigationItem.searchController = searchController
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.placeholder = "Enter a username here"
+  }
   
-  fileprivate func getFollowers(username: String, page: Int) {
+  func getFollowers(username: String, page: Int) {
     showLoading()
-    NetworkManager.shared.getFollowers(username: username , page: page) {[weak self] (newfollowers, error) in
+    NetworkManager.shared.getFollowers(username: username , page: page) {[weak self] (followers, error) in
       
       guard let self = self else { return }
       
       DispatchQueue.main.async { self.stopLoading()  }
+      guard let followers = followers else { self.presentAlert(title: "Error", message: error!)
+        return }
       
-      guard let newfollowers = newfollowers else {
-        DispatchQueue.main.async {
-          let alertView = CustomAlertController(title: "Error", message: error!)
-          alertView.modalPresentationStyle = .overFullScreen
-          alertView.modalTransitionStyle = .crossDissolve
-          self.present(alertView, animated: true, completion: nil)
-        }
+      if followers.count < 100 { self.hasMoreFollowers = false }
+      self.followers.append(contentsOf: followers)
+        
+      if self.followers.isEmpty {
+        let message = "This user doesn't have any followers. Go follow them"
+        DispatchQueue.main.async { self.showEmptyState(with: message, in: self.view) }
         return
       }
-      
-      if newfollowers.count < 100 { self.hasMoreFollowers = false }
-      DispatchQueue.main.async {
-        self.follower.append(contentsOf: newfollowers)
-        
-        if newfollowers.isEmpty {
-          self.showEmptyState(with: "This user doesn't have any followers. Go follow them", in: self.view)
-        }
-        self.collectionView.reloadData()
-      }
-     
+        self.updateData(on: self.followers)
     }
-   
+  }
+  
+  func configureDataSource() {
+    dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.resuseID, for: indexPath) as! FollowerCell
+      cell.follower = follower
+      return cell
+    })
+  }
+  
+  func updateData(on follower: [Follower]) {
+    var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+    snapshot.appendSections([.main])
+    snapshot.appendItems(followers)
+    DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
   }
   
   @objc fileprivate func handleAdd() {
@@ -85,19 +97,6 @@ class FollowerListController: UICollectionViewController {
   
 }
 
-
-// MARK:- Extensions
-extension FollowerListController {
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return follower.count
-  }
-  
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FollowerCell
-    cell.follower = follower[indexPath.row]
-    return cell
-  }
-}
 
 extension FollowerListController: UICollectionViewDelegateFlowLayout {
   
@@ -129,9 +128,10 @@ extension FollowerListController {
 }
 
 
-
 extension FollowerListController: UISearchResultsUpdating, UISearchControllerDelegate {
   func updateSearchResults(for searchController: UISearchController) {
-    print(searchController.searchBar.text)
+    guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+    filterFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+    updateData(on: filterFollowers)
   }
 }

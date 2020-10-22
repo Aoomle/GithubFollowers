@@ -45,4 +45,13 @@ extension UIViewController {
       message.frame = view.bounds      
     }
   }
+  
+  func presentAlert(title: String, message: String) {
+    DispatchQueue.main.async {
+      let alertView = CustomAlertController(title: title, message: message)
+      alertView.modalPresentationStyle = .overFullScreen
+      alertView.modalTransitionStyle = .crossDissolve
+      self.present(alertView, animated: true, completion: nil)
+    }
+  }
 }

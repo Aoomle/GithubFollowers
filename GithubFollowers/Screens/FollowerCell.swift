@@ -9,6 +9,8 @@ import UIKit
 
 class FollowerCell: UICollectionViewCell {
   
+  static let resuseID = "cellID"
+  
   let imageCache = NSCache<NSString, UIImage>()
   
   var avatarImage: UIImageView = {

@@ -9,8 +9,6 @@ import UIKit
 
 class FollowerListController: UICollectionViewController {
   
-//  let cache = NSCache<String, UIImage>()
-  
   var username: String?
   
   var follower = [Follower]()
@@ -37,6 +35,12 @@ class FollowerListController: UICollectionViewController {
     collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: "collectionCell")
     collectionView.backgroundColor = .systemBackground
     collectionView.delegate = self
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    navigationItem.searchController = searchController
+    searchController.delegate = self
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.placeholder = "Enter a username here"
     
     getFollowers(username: username ?? "aoomle", page: page)
     
@@ -121,5 +125,13 @@ extension FollowerListController {
       page += 1
       getFollowers(username: username ?? "aoomle", page: page)
     }
+  }
+}
+
+
+
+extension FollowerListController: UISearchResultsUpdating, UISearchControllerDelegate {
+  func updateSearchResults(for searchController: UISearchController) {
+    print(searchController.searchBar.text)
   }
 }

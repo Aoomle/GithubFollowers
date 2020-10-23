@@ -9,17 +9,12 @@ import UIKit
 
 class FollowerListController: UICollectionViewController {
   
-  enum Section {
-    case main
-  }
+  enum Section { case main }
   
   var username: String?
-  
   var followers = [Follower]()
   var filterFollowers = [Follower]()
-  
   var page = 1
-  
   var hasMoreFollowers = true
   
   var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -48,16 +43,15 @@ class FollowerListController: UICollectionViewController {
   }
   
   fileprivate func setupSearchController() {
-    let searchController = UISearchController(searchResultsController: nil)
-    navigationItem.searchController = searchController
+    let searchController = UISearchController()
     searchController.searchResultsUpdater = self
-    searchController.searchBar.placeholder = "Enter a username here"
+    searchController.searchBar.placeholder = "Enter a username"
+    navigationItem.searchController = searchController
   }
   
   func getFollowers(username: String, page: Int) {
     showLoading()
     NetworkManager.shared.getFollowers(username: username , page: page) {[weak self] (followers, error) in
-      
       guard let self = self else { return }
       
       DispatchQueue.main.async { self.stopLoading()  }
@@ -84,10 +78,11 @@ class FollowerListController: UICollectionViewController {
     })
   }
   
-  func updateData(on follower: [Follower]) {
+  func updateData(on followers: [Follower]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
     snapshot.appendSections([.main])
     snapshot.appendItems(followers)
+    
     DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
   }
   

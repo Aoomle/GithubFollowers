@@ -152,15 +152,31 @@ extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
 
 
 class UserInfoController: UIViewController {
+
   var username: String?
+
   override func viewDidLoad() {
     print(username ?? "aoomle")
     view.backgroundColor = .systemBackground
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDismiss))
     navigationItem.rightBarButtonItem = doneButton
+    
+    NetworkManager.shared.getUser(username: username ?? "aoomle") { (result) in
+      
+      switch result {
+      case .success(let user):
+        print(user)
+        
+      case .failure(let error):
+        self.presentAlert(title: "User Ino", message: error.rawValue)
+      }
+    }
   }
   
   @objc fileprivate func handleDismiss() {
     dismiss(animated: true)
   }
+  
+  
+
 }

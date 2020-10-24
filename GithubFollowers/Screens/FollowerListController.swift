@@ -16,6 +16,7 @@ class FollowerListController: UICollectionViewController {
   var filterFollowers = [Follower]()
   var page = 1
   var hasMoreFollowers = true
+  var isSearching = false
   
   var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
   
@@ -122,18 +123,44 @@ extension FollowerListController {
       getFollowers(username: username ?? "aoomle", page: page)
     }
   }
+  
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let activeFollower = isSearching ? filterFollowers : followers
+    let followers = activeFollower[indexPath.item]
+    let destController = UserInfoController()
+    let destUserInfoController = UINavigationController(rootViewController: destController)
+    destController.username = followers.login
+    present(destUserInfoController, animated: true)
+  }
 }
 
 
 extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
   func updateSearchResults(for searchController: UISearchController) {
     guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+    isSearching = true
     filterFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
     updateData(on: filterFollowers)
   }
   
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    isSearching = false
     updateData(on: followers)
   }
 
+}
+
+
+class UserInfoController: UIViewController {
+  var username: String?
+  override func viewDidLoad() {
+    print(username ?? "aoomle")
+    view.backgroundColor = .systemBackground
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDismiss))
+    navigationItem.rightBarButtonItem = doneButton
+  }
+  
+  @objc fileprivate func handleDismiss() {
+    dismiss(animated: true)
+  }
 }

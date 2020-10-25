@@ -56,17 +56,17 @@ class UserInfoController: UIViewController {
     bottomContainer.backgroundColor = .systemGreen
     
     NSLayoutConstraint.activate([
-      containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
       containView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       containView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       containView.heightAnchor.constraint(equalToConstant: 180),
       
-      middleContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      middleContainer.topAnchor.constraint(equalTo: containView.safeAreaLayoutGuide.bottomAnchor, constant: 20),
       middleContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       middleContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       middleContainer.heightAnchor.constraint(equalToConstant: 180),
       
-      bottomContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      bottomContainer.topAnchor.constraint(equalTo: middleContainer.safeAreaLayoutGuide.bottomAnchor, constant: 20),
       bottomContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       bottomContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       bottomContainer.heightAnchor.constraint(equalToConstant: 180),

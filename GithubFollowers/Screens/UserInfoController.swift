@@ -12,6 +12,8 @@ class UserInfoController: UIViewController {
   var username: String?
 
   let containView = UIView()
+  let middleContainer = UIView()
+  let bottomContainer = UIView()
   
   override func viewDidLoad() {
     view.backgroundColor = .systemBackground
@@ -43,13 +45,31 @@ class UserInfoController: UIViewController {
   
   func configureContainerView() {
     view.addSubview(containView)
+    view.addSubview(middleContainer)
+    view.addSubview(bottomContainer)
+    
     containView.translatesAutoresizingMaskIntoConstraints = false
+    middleContainer.translatesAutoresizingMaskIntoConstraints = false
+    bottomContainer.translatesAutoresizingMaskIntoConstraints = false
+    
+    middleContainer.backgroundColor = .systemTeal
+    bottomContainer.backgroundColor = .systemGreen
     
     NSLayoutConstraint.activate([
       containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       containView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       containView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       containView.heightAnchor.constraint(equalToConstant: 180),
+      
+      middleContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      middleContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      middleContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      middleContainer.heightAnchor.constraint(equalToConstant: 180),
+      
+      bottomContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      bottomContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      bottomContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      bottomContainer.heightAnchor.constraint(equalToConstant: 180),
     ])
   }
   

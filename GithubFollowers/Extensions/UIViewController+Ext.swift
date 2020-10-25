@@ -20,7 +20,6 @@ extension UIViewController {
     container.alpha = 0
     UIView.animate(withDuration: 0.25) { container.alpha = 0.8 }
     
-    
     let activityIndicator = UIActivityIndicatorView(style: .large)
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     container.addSubview(activityIndicator)
@@ -34,8 +33,10 @@ extension UIViewController {
   }
   
   func stopLoading() {
+    DispatchQueue.main.async {
     container.removeFromSuperview()
     container = nil
+    }
   }
   
   func showEmptyState(with message: String, in view: UIView) {

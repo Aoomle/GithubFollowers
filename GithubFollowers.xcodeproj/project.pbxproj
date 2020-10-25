@@ -20,6 +20,8 @@
 		47915379252F9597001D5EBA /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47915378252F9597001D5EBA /* FollowerCell.swift */; };
 		47BDDBDF2541319100DDB08D /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */; };
 		47BDDBE4254139C600DDB08D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BDDBE3254139C600DDB08D /* EmptyStateView.swift */; };
+		47CBE8B2254571930076204C /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CBE8B1254571930076204C /* UserInfoController.swift */; };
+		47CBE8B5254571D50076204C /* UserHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CBE8B4254571D50076204C /* UserHeaderInfo.swift */; };
 		47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFDF252B89D9002FB35B /* FollowerListController.swift */; };
 		47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE2252B8A04002FB35B /* FavoriteController.swift */; };
 		47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE5252B8A43002FB35B /* SearchController.swift */; };
@@ -43,6 +45,8 @@
 		47915378252F9597001D5EBA /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		47BDDBE3254139C600DDB08D /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		47CBE8B1254571930076204C /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
+		47CBE8B4254571D50076204C /* UserHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderInfo.swift; sourceTree = "<group>"; };
 		47DCEFDF252B89D9002FB35B /* FollowerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListController.swift; sourceTree = "<group>"; };
 		47DCEFE2252B8A04002FB35B /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		47DCEFE5252B8A43002FB35B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				47BDDBE3254139C600DDB08D /* EmptyStateView.swift */,
+				47CBE8B4254571D50076204C /* UserHeaderInfo.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				47DCEFDF252B89D9002FB35B /* FollowerListController.swift */,
 				47915378252F9597001D5EBA /* FollowerCell.swift */,
 				47DCEFE2252B8A04002FB35B /* FavoriteController.swift */,
+				47CBE8B1254571930076204C /* UserInfoController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -253,12 +259,14 @@
 				47E6E913252BF3FE00F10B78 /* Follower.swift in Sources */,
 				4763A0F22528FA3700D6E42D /* MainTabController.swift in Sources */,
 				47E6E916252C04D300F10B78 /* NetworkManager.swift in Sources */,
+				47CBE8B5254571D50076204C /* UserHeaderInfo.swift in Sources */,
 				47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */,
 				47BDDBE4254139C600DDB08D /* EmptyStateView.swift in Sources */,
 				4763A0EE2528FA3700D6E42D /* AppDelegate.swift in Sources */,
 				4763A0F02528FA3700D6E42D /* SceneDelegate.swift in Sources */,
 				473BD222252EBE280056766C /* User.swift in Sources */,
 				47915379252F9597001D5EBA /* FollowerCell.swift in Sources */,
+				47CBE8B2254571930076204C /* UserInfoController.swift in Sources */,
 				472104AD2535600C00966347 /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

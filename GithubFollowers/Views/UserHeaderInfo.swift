@@ -36,7 +36,7 @@ class UserHeaderInfo: UIViewController {
   let imageLocation: UIImageView = {
     let img = UIImageView()
     img.translatesAutoresizingMaskIntoConstraints = false
-    img.image = UIImage(systemName: "mappin.and.ellipse")
+    img.image = UIImage(systemName: SFSymbols.location)
     img.tintColor = .secondaryLabel
     return img
   }()

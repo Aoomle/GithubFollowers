@@ -50,6 +50,8 @@ class UserInfoController: UIViewController {
   }
   
   func configureContainerView() {
+    let padding: CGFloat = 20
+    let itemHeight: CGFloat = 140
     
     arrayOfViews = [containView, middleContainer, bottomContainer]
     for itemViews in arrayOfViews {
@@ -63,14 +65,14 @@ class UserInfoController: UIViewController {
     bottomContainer.backgroundColor = .systemGreen
     
     NSLayoutConstraint.activate([
-      containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-      containView.heightAnchor.constraint(equalToConstant: 180),
+      containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+      containView.heightAnchor.constraint(equalToConstant: itemHeight),
       
-      middleContainer.topAnchor.constraint(equalTo: containView.safeAreaLayoutGuide.bottomAnchor, constant: 20),
-      middleContainer.heightAnchor.constraint(equalToConstant: 180),
+      middleContainer.topAnchor.constraint(equalTo: containView.safeAreaLayoutGuide.bottomAnchor, constant: padding),
+      middleContainer.heightAnchor.constraint(equalToConstant: itemHeight),
       
-      bottomContainer.topAnchor.constraint(equalTo: middleContainer.safeAreaLayoutGuide.bottomAnchor, constant: 20),
-      bottomContainer.heightAnchor.constraint(equalToConstant: 180),
+      bottomContainer.topAnchor.constraint(equalTo: middleContainer.safeAreaLayoutGuide.bottomAnchor, constant: padding),
+      bottomContainer.heightAnchor.constraint(equalToConstant: itemHeight),
     ])
   }
   

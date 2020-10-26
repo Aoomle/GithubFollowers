@@ -15,11 +15,15 @@ class UserInfoController: UIViewController {
   let middleContainer = UIView()
   let bottomContainer = UIView()
   
+  var arrayOfViews = [UIView]()
+  
   override func viewDidLoad() {
-    view.backgroundColor = .systemBackground
-    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDismiss))
-    navigationItem.rightBarButtonItem = doneButton
-    
+    configureViewController()
+    configureContainerView()
+    getUserInfo()
+  }
+  
+ fileprivate func getUserInfo() {
     showLoading()
     NetworkManager.shared.getUser(username: username ?? "aoomle") { [weak self] (result) in
       guard let self = self else { return }
@@ -27,16 +31,18 @@ class UserInfoController: UIViewController {
       switch result {
       case .success(let user):
         guard  let user = user else { return }
-        DispatchQueue.main.async {
-          self.add(childController: UserHeaderInfo(user: user), to: self.containView)
-        }
-        
+        DispatchQueue.main.async { self.add(childController: UserHeaderInfo(user: user), to: self.containView) }
       case .failure(let error):
         self.presentAlert(title: "User Ino", message: error.rawValue)
       }
       self.stopLoading()
     }
-    configureContainerView()
+  }
+  
+  fileprivate func configureViewController() {
+    view.backgroundColor = .systemBackground
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDismiss))
+    navigationItem.rightBarButtonItem = doneButton
   }
   
   @objc fileprivate func handleDismiss() {
@@ -44,31 +50,26 @@ class UserInfoController: UIViewController {
   }
   
   func configureContainerView() {
-    view.addSubview(containView)
-    view.addSubview(middleContainer)
-    view.addSubview(bottomContainer)
     
-    containView.translatesAutoresizingMaskIntoConstraints = false
-    middleContainer.translatesAutoresizingMaskIntoConstraints = false
-    bottomContainer.translatesAutoresizingMaskIntoConstraints = false
+    arrayOfViews = [containView, middleContainer, bottomContainer]
+    for itemViews in arrayOfViews {
+      view.addSubview(itemViews)
+      itemViews.translatesAutoresizingMaskIntoConstraints = false
+      itemViews.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+      itemViews.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+    }
     
-    middleContainer.backgroundColor = .systemTeal
+    middleContainer.backgroundColor = .systemYellow
     bottomContainer.backgroundColor = .systemGreen
     
     NSLayoutConstraint.activate([
       containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-      containView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      containView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       containView.heightAnchor.constraint(equalToConstant: 180),
       
       middleContainer.topAnchor.constraint(equalTo: containView.safeAreaLayoutGuide.bottomAnchor, constant: 20),
-      middleContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      middleContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       middleContainer.heightAnchor.constraint(equalToConstant: 180),
       
       bottomContainer.topAnchor.constraint(equalTo: middleContainer.safeAreaLayoutGuide.bottomAnchor, constant: 20),
-      bottomContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      bottomContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       bottomContainer.heightAnchor.constraint(equalToConstant: 180),
     ])
   }

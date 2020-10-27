@@ -59,6 +59,7 @@ class UserInfoController: UIViewController {
       itemViews.translatesAutoresizingMaskIntoConstraints = false
       itemViews.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
       itemViews.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+      
     }
     
     middleContainer.backgroundColor = .systemYellow

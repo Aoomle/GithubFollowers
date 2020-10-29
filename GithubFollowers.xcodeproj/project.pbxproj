@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		472104AD2535600C00966347 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472104AC2535600C00966347 /* UIHelper.swift */; };
+		472E8BDA254ACC46000B870A /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472E8BD9254ACC46000B870A /* ItemInfoView.swift */; };
 		473BD222252EBE280056766C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BD221252EBE280056766C /* User.swift */; };
 		4763A0EE2528FA3700D6E42D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A0ED2528FA3700D6E42D /* AppDelegate.swift */; };
 		4763A0F02528FA3700D6E42D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4763A0EF2528FA3700D6E42D /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		472104AC2535600C00966347 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		472E8BD9254ACC46000B870A /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		473BD221252EBE280056766C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4763A0EA2528FA3700D6E42D /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4763A0ED2528FA3700D6E42D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				47BDDBE3254139C600DDB08D /* EmptyStateView.swift */,
 				47CBE8B4254571D50076204C /* UserHeaderInfo.swift */,
+				472E8BD9254ACC46000B870A /* ItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				4780C3B6252E7C9C0052072C /* ErrorMessage.swift in Sources */,
 				4768D8D62533938C00B53175 /* DownloadImage.swift in Sources */,
 				47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */,
+				472E8BDA254ACC46000B870A /* ItemInfoView.swift in Sources */,
 				47E6E913252BF3FE00F10B78 /* Follower.swift in Sources */,
 				4763A0F22528FA3700D6E42D /* MainTabController.swift in Sources */,
 				47E6E916252C04D300F10B78 /* NetworkManager.swift in Sources */,

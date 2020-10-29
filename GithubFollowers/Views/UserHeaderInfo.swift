@@ -85,8 +85,8 @@ class UserHeaderInfo: UIViewController {
     imageView.downloadImage(from: user.avatarUrl)
     usernameLabel.text = user.login
     nameLabel.text = user.name
-    locationLabel.text = user.location
-    bioLabel.text = user.bio
+    locationLabel.text = user.location ?? "No Location"
+    bioLabel.text = user.bio ?? "No bio available"
   }
   
   func configureUIElements() {

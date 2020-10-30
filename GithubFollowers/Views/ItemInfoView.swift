@@ -46,7 +46,7 @@ class ItemInfoView: UIView {
   }
   
   func set() {
-    
+       
   }
   
 }

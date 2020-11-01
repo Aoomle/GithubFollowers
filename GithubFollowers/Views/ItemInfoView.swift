@@ -7,9 +7,14 @@
 
 import UIKit
 
+enum ItemInfoType {
+  case repos, gists, followers, following
+}
+
+
 class ItemInfoView: UIView {
   
-  let symbolImageView = UIImageView(image: SFSymbols.location.description, imageScale: .scaleAspectFill)
+  let symbolImageView = UIImageView(imageScale: .scaleAspectFill)
   let titleLabel = UILabel(textAligment: .left, fontSize: 14)
   let countLabel = UILabel(textAligment: .center, fontSize: 14)
   
@@ -45,17 +50,34 @@ class ItemInfoView: UIView {
     ])
   }
   
-  func set() {
-       
+  func set(itemInfoType: ItemInfoType, withCount count: Int) {
+    switch itemInfoType {
+    case .repos:
+      symbolImageView.image = UIImage(systemName: SFSymbols.repos)
+      titleLabel.text = "Public Repos"
+      break
+    case .gists:
+      symbolImageView.image = UIImage(systemName: SFSymbols.gists)
+      titleLabel.text = "Public Gists"
+      break
+    case .followers:
+      symbolImageView.image = UIImage(systemName: SFSymbols.followers)
+      titleLabel.text = "Followers"
+      break
+    case .following:
+      symbolImageView.image = UIImage(systemName: SFSymbols.following)
+      titleLabel.text = "Following"
+      break
+    }
+    countLabel.text = String(count)
   }
   
 }
 
 
 extension UIImageView {
-  convenience init(image: String, imageScale: UIImageView.ContentMode) {
+  convenience init(imageScale: UIImageView.ContentMode) {
     self.init()
-    self.image = UIImage(named: image)
     self.contentMode = imageScale
     translatesAutoresizingMaskIntoConstraints = false
   }

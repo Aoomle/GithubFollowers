@@ -59,9 +59,10 @@ extension UIViewController {
 
 
 extension UIButton {
-  func set(backgroundColor: UIColor, fontSize: CGFloat) {
+  func set(title: String, backgroundColor: UIColor, fontSize: CGFloat) {
     self.backgroundColor = .label
     self.setTitleColor(backgroundColor, for: .normal)
+    self.setTitle(title, for: .normal)
     self.layer.cornerRadius = 10
     self.titleLabel?.font = .systemFont(ofSize: fontSize)
     translatesAutoresizingMaskIntoConstraints = false

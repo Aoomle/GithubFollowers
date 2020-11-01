@@ -25,7 +25,6 @@ class CustomAlertController: UIViewController {
     tv.text = "There is a problem with your internet connection, please try again later. If the problem presist, contact us +2348146191761"
     tv.translatesAutoresizingMaskIntoConstraints = false
     tv.font = .preferredFont(forTextStyle: .subheadline)
-//    tv.l
     tv.backgroundColor = .clear
     tv.textAlignment = .center
     tv.textColor = .label
@@ -108,8 +107,7 @@ class CustomAlertController: UIViewController {
       setMessage.topAnchor.constraint(equalTo: setTitle.safeAreaLayoutGuide.bottomAnchor, constant: 12),
       setMessage.leadingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
       setMessage.trailingAnchor.constraint(equalTo: alertView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-      setMessage.bottomAnchor.constraint(equalTo: setButton.safeAreaLayoutGuide.topAnchor, constant: -12),
-//      setMessage.heightAnchor.constraint(equalToConstant: 20)
+      setMessage.bottomAnchor.constraint(equalTo: setButton.safeAreaLayoutGuide.topAnchor, constant: -12)
     ])
     
   }

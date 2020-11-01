@@ -31,7 +31,11 @@ class UserInfoController: UIViewController {
       switch result {
       case .success(let user):
         guard  let user = user else { return }
-        DispatchQueue.main.async { self.add(childController: UserHeaderInfo(user: user), to: self.containView) }
+        DispatchQueue.main.async {
+          self.add(childController: UserHeaderInfo(user: user), to: self.containView)
+          self.add(childController: ReposItemController(user: user), to: self.middleContainer)
+          self.add(childController: FollowerItemController(user: user), to: self.bottomContainer)
+        }
       case .failure(let error):
         self.presentAlert(title: "User Ino", message: error.rawValue)
       }

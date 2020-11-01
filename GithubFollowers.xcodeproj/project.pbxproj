@@ -19,6 +19,7 @@
 		4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770332D252B98E5004B7ED2 /* CustomAlertController.swift */; };
 		4780C3B6252E7C9C0052072C /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4780C3B5252E7C9C0052072C /* ErrorMessage.swift */; };
 		47915379252F9597001D5EBA /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47915378252F9597001D5EBA /* FollowerCell.swift */; };
+		47A29962254E588D00C323DC /* ItemInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A29961254E588D00C323DC /* ItemInfoController.swift */; };
 		47BDDBDF2541319100DDB08D /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */; };
 		47BDDBE4254139C600DDB08D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BDDBE3254139C600DDB08D /* EmptyStateView.swift */; };
 		47CBE8B2254571930076204C /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CBE8B1254571930076204C /* UserInfoController.swift */; };
@@ -46,6 +47,7 @@
 		4770332D252B98E5004B7ED2 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		4780C3B5252E7C9C0052072C /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		47915378252F9597001D5EBA /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
+		47A29961254E588D00C323DC /* ItemInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoController.swift; sourceTree = "<group>"; };
 		47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		47BDDBE3254139C600DDB08D /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		47CBE8B1254571930076204C /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
@@ -88,16 +90,26 @@
 		4763A0EC2528FA3700D6E42D /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				47BDDBE2254139B800DDB08D /* Views */,
-				47BDDBDD2541318100DDB08D /* Extensions */,
-				47A7669525369E3B00DD704A /* Utilities */,
 				47B59709252E50DC00981FEA /* Manager */,
+				47A7669525369E3B00DD704A /* Utilities */,
+				47BDDBE2254139B800DDB08D /* Views */,
+				47DCEFE8252B8BCA002FB35B /* Screens */,
+				47BDDBDD2541318100DDB08D /* Extensions */,
 				47E6E911252BF3ED00F10B78 /* Model */,
 				47E6E90E252BF3D300F10B78 /* Support */,
-				47DCEFE8252B8BCA002FB35B /* Screens */,
 				4763A0FB2528FA3800D6E42D /* Info.plist */,
 			);
 			path = GithubFollowers;
+			sourceTree = "<group>";
+		};
+		4789358A254E5D60006522BC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				47BDDBE3254139C600DDB08D /* EmptyStateView.swift */,
+				47CBE8B4254571D50076204C /* UserHeaderInfo.swift */,
+				47A29961254E588D00C323DC /* ItemInfoController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		47A7669525369E3B00DD704A /* Utilities */ = {
@@ -137,8 +149,7 @@
 		47BDDBE2254139B800DDB08D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47BDDBE3254139C600DDB08D /* EmptyStateView.swift */,
-				47CBE8B4254571D50076204C /* UserHeaderInfo.swift */,
+				4789358A254E5D60006522BC /* ViewControllers */,
 				472E8BD9254ACC46000B870A /* ItemInfoView.swift */,
 			);
 			path = Views;
@@ -260,6 +271,7 @@
 				47CBE8B8254578180076204C /* Constants.swift in Sources */,
 				47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */,
 				47BDDBDF2541319100DDB08D /* UIViewController+Ext.swift in Sources */,
+				47A29962254E588D00C323DC /* ItemInfoController.swift in Sources */,
 				4780C3B6252E7C9C0052072C /* ErrorMessage.swift in Sources */,
 				4768D8D62533938C00B53175 /* DownloadImage.swift in Sources */,
 				47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */,

@@ -23,6 +23,8 @@ struct User: Codable {
   var following: Int?
   var createdAt: String
   var updatedAt: String
+  var publicRepos: Int
+  var publicGists: Int
 }
 
 //": "octocat",

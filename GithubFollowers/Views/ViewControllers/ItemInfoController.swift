@@ -14,6 +14,20 @@ class ItemInfoController: UIViewController {
   let itemInfoTwo = ItemInfoView()
   let actionButton = UIButton()
   
+  var user: User!
+  
+  
+  init(user: User) {
+    super.init(nibName: nil, bundle: nil)
+    self.user = user
+  }
+  
+  
+  required init?(coder: NSCoder) {
+    fatalError()
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureBackground()

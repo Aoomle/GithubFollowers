@@ -56,3 +56,14 @@ extension UIViewController {
     }
   }
 }
+
+
+extension UIButton {
+  func set(backgroundColor: UIColor, fontSize: CGFloat) {
+    self.backgroundColor = .label
+    self.setTitleColor(backgroundColor, for: .normal)
+    self.layer.cornerRadius = 10
+    self.titleLabel?.font = .systemFont(ofSize: fontSize)
+    translatesAutoresizingMaskIntoConstraints = false
+  }
+}

@@ -42,7 +42,7 @@ class ItemInfoController: UIViewController {
   
   fileprivate func configureStackView() {
     stackView.axis = .horizontal
-    stackView.distribution = .equalSpacing
+    stackView.distribution = .fillEqually
 
     stackView.addArrangedSubview(itemInfoOne)
     stackView.addArrangedSubview(itemInfoTwo)

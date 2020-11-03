@@ -66,9 +66,6 @@ class UserInfoController: UIViewController {
       
     }
     
-    middleContainer.backgroundColor = .systemYellow
-    bottomContainer.backgroundColor = .systemGreen
-    
     NSLayoutConstraint.activate([
       containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
       containView.heightAnchor.constraint(equalToConstant: itemHeight),

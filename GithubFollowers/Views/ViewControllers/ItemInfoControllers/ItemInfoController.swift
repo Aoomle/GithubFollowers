@@ -33,20 +33,22 @@ class ItemInfoController: UIViewController {
     configureBackground()
     configureStackView()
     layoutUI()
+   
   }
   
   fileprivate func configureBackground() {
     view.layer.cornerRadius = 18
-    view.backgroundColor = .secondaryLabel
+    view.backgroundColor = .secondarySystemBackground
+    actionButton.translatesAutoresizingMaskIntoConstraints = false
   }
   
   fileprivate func configureStackView() {
     stackView.axis = .horizontal
-    stackView.distribution = .fillEqually
+    stackView.distribution = .equalSpacing
 
     stackView.addArrangedSubview(itemInfoOne)
     stackView.addArrangedSubview(itemInfoTwo)
-   // stackView.addArrangedSubview(actionButton)
+    stackView.addArrangedSubview(actionButton)
   }
   
   fileprivate func layoutUI() {
@@ -60,10 +62,10 @@ class ItemInfoController: UIViewController {
       stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
       stackView.heightAnchor.constraint(equalToConstant: 50),
       
-//      actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
-//      actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-//      actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-//      actionButton.heightAnchor.constraint(equalToConstant: 44)
+      actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+      actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+      actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+      actionButton.heightAnchor.constraint(equalToConstant: 20)
     ])
     
   }

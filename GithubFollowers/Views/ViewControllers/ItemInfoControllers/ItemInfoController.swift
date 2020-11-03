@@ -46,6 +46,7 @@ class ItemInfoController: UIViewController {
 
     stackView.addArrangedSubview(itemInfoOne)
     stackView.addArrangedSubview(itemInfoTwo)
+   // stackView.addArrangedSubview(actionButton)
   }
   
   fileprivate func layoutUI() {
@@ -59,10 +60,10 @@ class ItemInfoController: UIViewController {
       stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
       stackView.heightAnchor.constraint(equalToConstant: 50),
       
-      actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
-      actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-      actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-      actionButton.heightAnchor.constraint(equalToConstant: 44)
+//      actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+//      actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+//      actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+//      actionButton.heightAnchor.constraint(equalToConstant: 44)
     ])
     
   }

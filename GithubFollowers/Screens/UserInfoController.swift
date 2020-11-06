@@ -55,7 +55,7 @@ class UserInfoController: UIViewController {
   
   func configureContainerView() {
     let padding: CGFloat = 20
-    let itemHeight: CGFloat = 180
+    let itemHeight: CGFloat = 160
     
     arrayOfViews = [containView, middleContainer, bottomContainer]
     for itemViews in arrayOfViews {

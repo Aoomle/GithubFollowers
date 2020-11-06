@@ -164,8 +164,8 @@
 		47BDDBE2254139B800DDB08D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4784F289254E69DC002417F4 /* Cell */,
 				472E8BD9254ACC46000B870A /* ItemInfoView.swift */,
+				4784F289254E69DC002417F4 /* Cell */,
 				4789358A254E5D60006522BC /* ViewControllers */,
 			);
 			path = Views;

@@ -48,14 +48,15 @@ class ItemInfoController: UIViewController {
 
     stackView.addArrangedSubview(itemInfoOne)
     stackView.addArrangedSubview(itemInfoTwo)
-    stackView.addArrangedSubview(actionButton)
   }
   
   fileprivate func layoutUI() {
     view.addSubview(stackView)
-    stackView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(actionButton)
     
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     let padding: CGFloat = 20
+    
     NSLayoutConstraint.activate([
       stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
       stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
@@ -65,7 +66,7 @@ class ItemInfoController: UIViewController {
       actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
       actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
       actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-      actionButton.heightAnchor.constraint(equalToConstant: 20)
+      actionButton.heightAnchor.constraint(equalToConstant: 44)
     ])
     
   }

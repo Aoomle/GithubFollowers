@@ -16,7 +16,7 @@ class ItemInfoView: UIView {
   
   let symbolImageView = UIImageView()
   let titleLabel = UILabel(textAligment: .left, fontSize: 14)
-  let countLabel = UILabel(textAligment: .center, fontSize: 14)
+  let countLabel = UILabel(textAligment: .right, fontSize: 14)
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -37,6 +37,7 @@ class ItemInfoView: UIView {
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     countLabel.translatesAutoresizingMaskIntoConstraints = false
     
+    countLabel.backgroundColor = .red
     NSLayoutConstraint.activate([
       symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
       symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -45,7 +46,7 @@ class ItemInfoView: UIView {
       
       titleLabel.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
       titleLabel.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: 12),
-      titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+      titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
       titleLabel.heightAnchor.constraint(equalToConstant: 18),
       
       countLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor, constant: 4),

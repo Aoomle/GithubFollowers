@@ -14,7 +14,7 @@ enum ItemInfoType {
 
 class ItemInfoView: UIView {
   
-  let symbolImageView = UIImageView(imageScale: .scaleAspectFit)
+  let symbolImageView = UIImageView()
   let titleLabel = UILabel(textAligment: .left, fontSize: 14)
   let countLabel = UILabel(textAligment: .center, fontSize: 14)
   
@@ -33,16 +33,17 @@ class ItemInfoView: UIView {
     addSubview(countLabel)
     
     symbolImageView.translatesAutoresizingMaskIntoConstraints = false
+    symbolImageView.contentMode = .scaleAspectFill
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     countLabel.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      symbolImageView.topAnchor.constraint(equalTo: topAnchor),
-      symbolImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
+      symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
       symbolImageView.widthAnchor.constraint(equalToConstant: 20),
       symbolImageView.heightAnchor.constraint(equalToConstant: 20),
       
-      titleLabel.topAnchor.constraint(equalTo: symbolImageView.firstBaselineAnchor),
+      titleLabel.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
       titleLabel.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: 12),
       titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
       titleLabel.heightAnchor.constraint(equalToConstant: 18),

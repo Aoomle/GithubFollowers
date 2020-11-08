@@ -68,6 +68,8 @@ class UserInfoController: UIViewController {
       
     }
     
+    dateLabel.textAlignment = .center
+    
     NSLayoutConstraint.activate([
       containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
       containView.heightAnchor.constraint(equalToConstant: 180),
@@ -78,7 +80,7 @@ class UserInfoController: UIViewController {
       bottomContainer.topAnchor.constraint(equalTo: middleContainer.bottomAnchor, constant: padding),
       bottomContainer.heightAnchor.constraint(equalToConstant: itemHeight),
       
-      dateLabel.topAnchor.constraint(equalTo: bottomContainer.topAnchor, constant: padding),
+      dateLabel.topAnchor.constraint(equalTo: bottomContainer.bottomAnchor, constant: padding),
       dateLabel.heightAnchor.constraint(equalToConstant: 18)
     ])
   }

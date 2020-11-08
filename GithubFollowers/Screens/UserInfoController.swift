@@ -11,9 +11,10 @@ class UserInfoController: UIViewController {
 
   var username: String?
 
-  let containView = UIView()
-  let middleContainer = UIView()
-  let bottomContainer = UIView()
+  let containView       = UIView()
+  let middleContainer   = UIView()
+  let bottomContainer   = UIView()
+  let dateLabel         = UILabel()
   
   var arrayOfViews = [UIView]()
   
@@ -35,9 +36,10 @@ class UserInfoController: UIViewController {
           self.add(childController: UserHeaderInfo(user: user), to: self.containView)
           self.add(childController: ReposItemController(user: user), to: self.middleContainer)
           self.add(childController: FollowerItemController(user: user), to: self.bottomContainer)
+          self.dateLabel.text = user.createdAt
         }
       case .failure(let error):
-        self.presentAlert(title: "User Ino", message: error.rawValue)
+        self.presentAlert(title: "Something went wrong", message: error.rawValue)
       }
       self.stopLoading()
     }
@@ -57,7 +59,7 @@ class UserInfoController: UIViewController {
     let padding: CGFloat = 20
     let itemHeight: CGFloat = 140
     
-    arrayOfViews = [containView, middleContainer, bottomContainer]
+    arrayOfViews = [containView, middleContainer, bottomContainer, dateLabel]
     for itemViews in arrayOfViews {
       view.addSubview(itemViews)
       itemViews.translatesAutoresizingMaskIntoConstraints = false
@@ -68,13 +70,16 @@ class UserInfoController: UIViewController {
     
     NSLayoutConstraint.activate([
       containView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-      containView.heightAnchor.constraint(equalToConstant: itemHeight),
+      containView.heightAnchor.constraint(equalToConstant: 180),
       
       middleContainer.topAnchor.constraint(equalTo: containView.bottomAnchor, constant: padding),
       middleContainer.heightAnchor.constraint(equalToConstant: itemHeight),
       
       bottomContainer.topAnchor.constraint(equalTo: middleContainer.bottomAnchor, constant: padding),
       bottomContainer.heightAnchor.constraint(equalToConstant: itemHeight),
+      
+      dateLabel.topAnchor.constraint(equalTo: bottomContainer.topAnchor, constant: padding),
+      dateLabel.heightAnchor.constraint(equalToConstant: 18)
     ])
   }
   

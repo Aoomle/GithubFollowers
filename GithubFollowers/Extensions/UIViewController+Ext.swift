@@ -68,3 +68,11 @@ extension UIButton {
     translatesAutoresizingMaskIntoConstraints = false
   }
 }
+
+
+extension UILabel {
+  convenience init(alignment: NSTextAlignment) {
+    self.init()
+    self.textAlignment = alignment
+  }
+}

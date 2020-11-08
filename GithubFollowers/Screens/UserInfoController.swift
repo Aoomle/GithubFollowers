@@ -36,7 +36,7 @@ class UserInfoController: UIViewController {
           self.add(childController: UserHeaderInfo(user: user), to: self.containView)
           self.add(childController: ReposItemController(user: user), to: self.middleContainer)
           self.add(childController: FollowerItemController(user: user), to: self.bottomContainer)
-          self.dateLabel.text = user.createdAt
+          self.dateLabel.text = "Github since \(user.createdAt.displayDate())"
         }
       case .failure(let error):
         self.presentAlert(title: "Something went wrong", message: error.rawValue)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4709B1CC2558703C009EAA38 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4709B1CB2558703C009EAA38 /* DateFormatter.swift */; };
 		472104AD2535600C00966347 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472104AC2535600C00966347 /* UIHelper.swift */; };
 		472E8BDA254ACC46000B870A /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472E8BD9254ACC46000B870A /* ItemInfoView.swift */; };
 		473BD222252EBE280056766C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BD221252EBE280056766C /* User.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4709B1CB2558703C009EAA38 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		472104AC2535600C00966347 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		472E8BD9254ACC46000B870A /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		473BD221252EBE280056766C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				47BDDBDE2541319100DDB08D /* UIViewController+Ext.swift */,
+				4709B1CB2558703C009EAA38 /* DateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4709B1CC2558703C009EAA38 /* DateFormatter.swift in Sources */,
 				4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */,
 				47CBE8B8254578180076204C /* Constants.swift in Sources */,
 				47893590254E6619006522BC /* FollowerItemController.swift in Sources */,

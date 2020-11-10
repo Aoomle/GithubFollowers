@@ -57,7 +57,6 @@ extension UIViewController {
   }
 }
 
-
 extension UIButton {
   func set(title: String, backgroundColor: UIColor, fontSize: CGFloat) {
     self.backgroundColor = .label

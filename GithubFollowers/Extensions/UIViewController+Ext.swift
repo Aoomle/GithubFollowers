@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 fileprivate var container: UIView!
 
 extension UIViewController {
-  
   func showLoading() {
     container = UIView(frame: view.bounds)
     view.addSubview(container)

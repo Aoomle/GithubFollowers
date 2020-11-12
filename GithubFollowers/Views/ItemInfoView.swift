@@ -79,7 +79,6 @@ class ItemInfoView: UIView {
   
 }
 
-
 extension UIImageView {
   convenience init(imageScale: UIImageView.ContentMode) {
     self.init()

@@ -46,6 +46,7 @@ class UserInfoController: UIViewController {
     }
   }
   
+  
   func configureUIElemente(user: User) {
     
     let repoItemVC = ReposItemController(user: user)
@@ -60,15 +61,18 @@ class UserInfoController: UIViewController {
     self.dateLabel.text = "Github since \(user.createdAt.displayDate())"
   }
   
+  
   fileprivate func configureViewController() {
     view.backgroundColor = .systemBackground
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDismiss))
     navigationItem.rightBarButtonItem = doneButton
   }
   
+  
   @objc fileprivate func handleDismiss() {
     dismiss(animated: true)
   }
+  
   
   func configureContainerView() {
     let padding: CGFloat = 20
@@ -99,6 +103,7 @@ class UserInfoController: UIViewController {
       dateLabel.heightAnchor.constraint(equalToConstant: 18)
     ])
   }
+  
   
   func add(childController: UIViewController, to containerView: UIView) {
     addChild(childController)

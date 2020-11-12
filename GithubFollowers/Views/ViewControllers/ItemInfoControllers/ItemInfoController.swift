@@ -32,6 +32,7 @@ class ItemInfoController: UIViewController {
     super.viewDidLoad()
     configureBackground()
     configureStackView()
+    configureActionButton()
     layoutUI()
    
   }
@@ -48,6 +49,14 @@ class ItemInfoController: UIViewController {
 
     stackView.addArrangedSubview(itemInfoOne)
     stackView.addArrangedSubview(itemInfoTwo)
+  }
+  
+  fileprivate func configureActionButton() {
+    actionButton.addTarget(self, action: #selector(handleTapped), for: .touchUpInside)
+  }
+  
+  @objc func handleTapped() {
+    
   }
   
   fileprivate func layoutUI() {

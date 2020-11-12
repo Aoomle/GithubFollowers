@@ -25,6 +25,7 @@ struct User: Codable {
   var updatedAt: String
   var publicRepos: Int
   var publicGists: Int
+  var htmlUrl: String?
 }
 
 //": "octocat",

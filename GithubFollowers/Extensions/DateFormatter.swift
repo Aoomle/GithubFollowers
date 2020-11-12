@@ -11,7 +11,7 @@ extension String {
   func convertToDate() -> Date? {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
-    return formatter.date(from: self)!
+    return formatter.date(from: self)
   }
   
   func displayDate() -> String {

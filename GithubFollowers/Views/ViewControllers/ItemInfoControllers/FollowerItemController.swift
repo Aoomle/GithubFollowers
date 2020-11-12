@@ -19,4 +19,8 @@ class FollowerItemController: ItemInfoController {
     itemInfoTwo.set(itemInfoType: .following, withCount: user.following ?? 0)
     actionButton.set(title: "Get Followers" ,backgroundColor: .systemBackground, fontSize: 20)
   }
+  
+  override func handleTapped() {
+    delegate.didTapGetFollowers(user: user)
+  }
 }

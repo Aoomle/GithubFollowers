@@ -15,7 +15,8 @@ protocol UserInfoControllerDelegate: class {
 class UserInfoController: UIViewController {
 
   var username: String?
-
+  weak var delegate: FollowerListControllerDelegate!
+  
   let containView       = UIView()
   let middleContainer   = UIView()
   let bottomContainer   = UIView()
@@ -119,14 +120,17 @@ extension UserInfoController: UserInfoControllerDelegate {
   func didTapGithubProfile(user: User) {
     guard let url = URL(string: user.htmlUrl!) else {
       presentAlert(title: "Invalid URL", message: "The url attached to this user is invalid!")
-//      presentAlert(title: "Invalid URL", message: "This user does not have any followers what a shame.")
       return
     }
     presentSafari(url: url)
   }
   
   func didTapGetFollowers(user: User) {
-  
-    
+    guard user.followers != 0 else {
+      presentAlert(title: "No Followers", message: "This user has no followers. what a shame☹️!")
+      return
+    }
+    delegate.didRequestFollowers(for: user.login)
+    handleDismiss()
   }
 }

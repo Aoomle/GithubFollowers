@@ -15,7 +15,7 @@ class ItemInfoController: UIViewController {
   let actionButton = UIButton()
   
   var user: User!
-  var delegate: UserInfoControllerDelegate!
+  weak var delegate: UserInfoControllerDelegate!
   
   init(user: User) {
     super.init(nibName: nil, bundle: nil)

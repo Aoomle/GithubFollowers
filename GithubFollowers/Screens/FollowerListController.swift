@@ -95,7 +95,32 @@ class FollowerListController: UICollectionViewController {
   
   
   @objc fileprivate func handleAdd() {
-    print(#function)
+    guard let username = username else { return }
+    showLoading()
+    NetworkManager.shared.getUser(username: username) { [weak self] result in
+      guard let self = self else { return }
+      self.stopLoading()
+      switch result {
+      case .success(let user):
+        guard let user = user else { return }
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+          guard let self = self else { return }
+          
+          guard let error = error else {
+            self.presentAlert(title: "Success!", message: "You've successfully favorited this user🎊")
+            return
+          }
+          
+          self.presentAlert(title: "Something went wrong", message: error.rawValue)
+          
+        }
+        
+      case.failure(let error):
+        self.presentAlert(title: "Something went wrong", message: error.rawValue)
+      }
+    }
   }
   
 }

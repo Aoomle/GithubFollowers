@@ -28,6 +28,7 @@
 		47CBE8B2254571930076204C /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CBE8B1254571930076204C /* UserInfoController.swift */; };
 		47CBE8B5254571D50076204C /* UserHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CBE8B4254571D50076204C /* UserHeaderInfo.swift */; };
 		47CBE8B8254578180076204C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CBE8B7254578180076204C /* Constants.swift */; };
+		47D97A8D256028DD00F2660D /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D97A8C256028DD00F2660D /* PersistenceManager.swift */; };
 		47DCEFE0252B89D9002FB35B /* FollowerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFDF252B89D9002FB35B /* FollowerListController.swift */; };
 		47DCEFE3252B8A04002FB35B /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE2252B8A04002FB35B /* FavoriteController.swift */; };
 		47DCEFE6252B8A43002FB35B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCEFE5252B8A43002FB35B /* SearchController.swift */; };
@@ -59,6 +60,7 @@
 		47CBE8B1254571930076204C /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
 		47CBE8B4254571D50076204C /* UserHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderInfo.swift; sourceTree = "<group>"; };
 		47CBE8B7254578180076204C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		47D97A8C256028DD00F2660D /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		47DCEFDF252B89D9002FB35B /* FollowerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListController.swift; sourceTree = "<group>"; };
 		47DCEFE2252B8A04002FB35B /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		47DCEFE5252B8A43002FB35B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		47A7669525369E3B00DD704A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4780C3B5252E7C9C0052072C /* ErrorMessage.swift */,
 				472104AC2535600C00966347 /* UIHelper.swift */,
 				47CBE8B7254578180076204C /* Constants.swift */,
 			);
@@ -151,6 +154,7 @@
 			children = (
 				47E6E915252C04D300F10B78 /* NetworkManager.swift */,
 				4768D8D52533938C00B53175 /* DownloadImage.swift */,
+				47D97A8C256028DD00F2660D /* PersistenceManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -209,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				47E6E912252BF3FE00F10B78 /* Follower.swift */,
-				4780C3B5252E7C9C0052072C /* ErrorMessage.swift */,
 				473BD221252EBE280056766C /* User.swift */,
 			);
 			path = Model;
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4709B1CC2558703C009EAA38 /* DateFormatter.swift in Sources */,
+				47D97A8D256028DD00F2660D /* PersistenceManager.swift in Sources */,
 				4770332E252B98E5004B7ED2 /* CustomAlertController.swift in Sources */,
 				47CBE8B8254578180076204C /* Constants.swift in Sources */,
 				47893590254E6619006522BC /* FollowerItemController.swift in Sources */,
@@ -376,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -431,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

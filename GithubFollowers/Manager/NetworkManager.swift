@@ -31,12 +31,12 @@ class NetworkManager {
       }
       
       guard let _ = response else {
-        completion(nil, ErrorMessage.response.rawValue)
+        completion(nil, ErrorMessage.invalidResponse.rawValue)
         return
       }
       
       guard let data = data else {
-        completion(nil, ErrorMessage.data.rawValue)
+        completion(nil, ErrorMessage.invalidData.rawValue)
         return
       }
       
@@ -46,7 +46,7 @@ class NetworkManager {
         let followers = try decoder.decode([Follower].self, from: data)
         completion(followers, nil)
       } catch {
-        completion(nil, ErrorMessage.data.rawValue)
+        completion(nil, ErrorMessage.invalidData.rawValue)
       }
       
     }.resume()
@@ -67,12 +67,12 @@ class NetworkManager {
       }
       
       guard let _ = response else {
-        completion(.failure(.response))
+        completion(.failure(.invalidResponse))
         return
       }
       
       guard let data = data else {
-        completion(.failure(.data))
+        completion(.failure(.invalidData))
         return
       }
       
@@ -82,7 +82,7 @@ class NetworkManager {
         let user = try decode.decode(User.self, from: data)
         completion(.success(user))
       } catch {
-        completion(.failure(.data))
+        completion(.failure(.invalidData))
       }
       
     }.resume()

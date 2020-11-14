@@ -13,6 +13,16 @@ class FavoriteController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = .systemIndigo
     navigationController?.setNavigationBarHidden(true, animated: true)
+    
+    PersistenceManager.retriveFavorites { result in
+      
+      switch result {
+      case .success(let favorites):
+        print(favorites)
+      case .failure(let _):
+        break
+      }
+    }
   }
   
 }

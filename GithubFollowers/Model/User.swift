@@ -21,7 +21,7 @@ struct User: Codable {
   var twitterUsername: String?
   var followers: Int?
   var following: Int?
-  var createdAt: String
+  var createdAt: Date
   var updatedAt: String
   var publicRepos: Int
   var publicGists: Int

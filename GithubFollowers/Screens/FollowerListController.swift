@@ -24,6 +24,17 @@ class FollowerListController: UICollectionViewController {
   
   var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
   
+  init(username: String) {
+    let layout = UICollectionViewFlowLayout()
+    super.init(collectionViewLayout: layout)
+    self.username = username
+    self.title = username
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViewController()
@@ -33,10 +44,15 @@ class FollowerListController: UICollectionViewController {
     configureDataSource()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(false, animated: false)
+  }
+  
   fileprivate func setupViewController() {
     title = username ?? "aoomle"
     ///fix navigation back button animated while going back to the main tab controller
-    navigationController?.setNavigationBarHidden(false, animated: false)
+   // navigationController?.setNavigationBarHidden(false, animated: false)
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
   }

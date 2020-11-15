@@ -21,6 +21,7 @@ class SearchController: UIViewController, UITextFieldDelegate {
     username.returnKeyType = .search
     username.autocorrectionType = .no
     username.minimumFontSize = 12
+    username.clearButtonMode = .whileEditing
     username.adjustsFontSizeToFitWidth = true
     username.translatesAutoresizingMaskIntoConstraints = false
     return username
@@ -48,6 +49,10 @@ class SearchController: UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    configureViewController()
+  }
+  
+  fileprivate func configureViewController() {
     view.backgroundColor = .systemBackground
     
     usernameLabel.delegate = self
@@ -56,14 +61,20 @@ class SearchController: UIViewController, UITextFieldDelegate {
     view.addSubview(sendbutton)
     view.addSubview(logoImageView)
     
+    usernameLabel.resignFirstResponder()
+    usernameLabel.text = ""
+    
+    let topConstraintsConstant:CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+    
+    logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintsConstant).isActive = true
+    
     sendbutton.addTarget(self, action: #selector(handleFollowers), for: .touchUpInside)
     NSLayoutConstraint.activate([
-      logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
       logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       logoImageView.widthAnchor.constraint(equalToConstant: 220),
       logoImageView.heightAnchor.constraint(equalToConstant: 220),
       
-      usernameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      usernameLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 50),
       usernameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
       usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
       usernameLabel.heightAnchor.constraint(equalToConstant: 50),
@@ -80,6 +91,7 @@ class SearchController: UIViewController, UITextFieldDelegate {
     super.viewWillAppear(animated)
     navigationController?.setNavigationBarHidden(true, animated: false)
   }
+  
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
     
@@ -105,9 +117,7 @@ class SearchController: UIViewController, UITextFieldDelegate {
   }
   
   fileprivate func pushViewController() {
-    let layout = UICollectionViewFlowLayout()
-    let followerList = FollowerListController(collectionViewLayout: layout)
-    followerList.username = usernameLabel.text
+    let followerList = FollowerListController(username: usernameLabel.text!)
     navigationController?.pushViewController(followerList, animated: false)
   }
   
